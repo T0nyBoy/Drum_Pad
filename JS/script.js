@@ -36,132 +36,50 @@ var sounda1 = new Howl({
   });
 
 
+//Dicitonaries for each letter and ids
+keypressSound={"q":sounda1,"w":sounda2,"e":sounda3,
+                "a":soundb1, "s":soundb2, "d":soundb3,
+                "z":soundc1, "x":soundc2, "c":soundc3};
+
+pressMouse={"a1":sounda1,"a2":sounda2,"a3":sounda3,
+                "b1":soundb1, "b2":soundb2, "b3":soundb3,
+                "c1":soundc1, "c2":soundc2, "c3":soundc3};
+
+keypressId={"q":"#a1","w":"#a2","e":"#a3",
+            "a":"#b1","s":"#b2","d":"#b3",
+            "z":"#c1","x":"#c2","c":"#c3"};
+
+mouseId={"a1":"#a1","a2":"#a2","a3":"#a3",
+        "b1":"#b1", "b2":"#b2", "b3":"#b3",
+        "c1":"#c1", "c2":"#c2", "c3":"#c3"};
 
 
+//On key press (down) event (play the sound, change colour and give outer glow)
+//select from document a keydown as there is no specific entry for this
 $(document).on("keydown",function(e){
-    if(e.which===81){
-        $("#a1").addClass("onPress");
-        sounda1.play();
-    } else if (e.which===87){
-        $("#a2").addClass("onPress");
-        sounda2.play();
-    } else if (e.which===69){
-        $("#a3").addClass("onPress");
-        sounda3.play();
-    } else if (e.which===65){
-        $("#b1").addClass("onPress");
-        soundb1.play();
-    } else if (e.which===83){
-        $("#b2").addClass("onPress");
-        soundb2.play();
-    } else if (e.which===68){
-        $("#b3").addClass("onPress");
-        soundb3.play();
-    } else if (e.which===90){
-        $("#c1").addClass("onPress");
-        soundc1.play();
-    } else if (e.which===88){
-        $("#c2").addClass("onPress");
-        soundc2.play();
-    } else if (e.which===67){
-        $("#c3").addClass("onPress");
-        soundc3.play();
-    }
+    keypressSound[e.key].play();
+    $(keypressId[e.key]).addClass("onPress");
 });
 
+//On key release (up) remoce the given styling
 $(document).on("keyup",function(e){
-    if(e.which===81){
-        $("#a1").removeClass("onPress")
-        } else if (e.which===87){
-            $("#a2").removeClass("onPress")
-        } else if (e.which===69){
-            $("#a3").removeClass("onPress")
-        } else if (e.which===65){
-            $("#b1").removeClass("onPress")
-        } else if (e.which===83){
-            $("#b2").removeClass("onPress")
-        } else if (e.which===68){
-            $("#b3").removeClass("onPress")
-        } else if (e.which===90){
-            $("#c1").removeClass("onPress")
-        } else if (e.which===88){
-            $("#c2").removeClass("onPress")
-        } else if (e.which===67){
-            $("#c3").removeClass("onPress")
-        }
-    });
-
-
-    $("#a1").on("mousedown",function(){
-            $("#a1").addClass("onPress");
-            sounda1.play();
-        });
-    $("#a2").on("mousedown",function(){
-        $("#a2").addClass("onPress");
-        sounda2.play();
-    });
-    $("#a3").on("mousedown",function(){
-        $("#a3").addClass("onPress");
-        sounda3.play();
-    });
-    $("#b1").on("mousedown",function(){
-        $("#b1").addClass("onPress");
-        soundb1.play();
-    });
-    $("#b2").on("mousedown",function(){
-        $("#b2").addClass("onPress");
-        soundb2.play();
-    });
-    $("#b3").on("mousedown",function(){
-        $("#b3").addClass("onPress");
-        soundb3.play();
-    });
-    $("#c1").on("mousedown",function(){
-        $("#c1").addClass("onPress");
-        soundc1.play();
-    });
-    $("#c2").on("mousedown",function(){
-        $("#c2").addClass("onPress");
-        soundc2.play();
-    });
-    $("#c3").on("mousedown",function(){
-        $("#c3").addClass("onPress");
-        soundc3.play();
-    });
-    
-
-$("#a1").on("mouseup",function(){
-    $("#a1").removeClass("onPress");
+    $(keypressId[e.key]).removeClass("onPress");
 });
 
-$("#a2").on("mouseup",function(){
-    $("#a2").removeClass("onPress");
+
+//Same code as key pressing but for mouse and touch screens
+//touch start is same as mouse down or key down 
+//(bit disfuncitonal as it get more than one clicks per touch with slight finger movement)
+//Class is used to select item as we are targeting specific elements of DOM for inputs and not the whole document
+$(".square").on("mousedown touchstart",function(){
+    pressMouse[this.id].play();
+    $(mouseId[this.id]).addClass("onPress");
 });
 
-$("#a3").on("mouseup",function(){
-    $("#a3").removeClass("onPress");
+
+//On moure/touch release we remove the assignes styling class
+$(".square").on("mouseup touchend",function(){
+    $(mouseId[this.id]).removeClass("onPress");
 });
 
-$("#b1").on("mouseup",function(){
-    $("#b1").removeClass("onPress");
-});
 
-$("#b2").on("mouseup",function(){
-    $("#b2").removeClass("onPress");
-});
-
-$("#b3").on("mouseup",function(){
-    $("#b3").removeClass("onPress");
-});
-
-$("#c1").on("mouseup",function(){
-    $("#c1").removeClass("onPress");
-});
-
-$("#c2").on("mouseup",function(){
-    $("#c2").removeClass("onPress");
-});
-
-$("#c3").on("mouseup",function(){
-    $("#c3").removeClass("onPress");
-});
