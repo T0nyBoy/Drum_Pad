@@ -1,34 +1,34 @@
 // SOUNDS
 var sounda1 = new Howl({
-    src: ['sounds/piston-1.mp3']
+    src: ['sounds/CYCdh_ElecK03-Clap02.mp3']
   });
 
   var sounda2 = new Howl({
-    src: ['sounds/splits.mp3']
+    src: ['sounds/CYCdh_ElecK03-ClHat.mp3']
   });
 
   var sounda3 = new Howl({
-    src: ['sounds/ufo.mp3']
+    src: ['sounds/CYCdh_ElecK03-Snr01.mp3']
   });
 
   var soundb1 = new Howl({
-    src: ['sounds/wipe.mp3']
+    src: ['sounds/CYCdh_ElecK03-Kick01.mp3']
   });
 
   var soundb2 = new Howl({
-    src: ['sounds/flash-1.mp3']
+    src: ['sounds/CYCdh_ElecK03-OpHat.mp3']
   });
 
   var soundb3 = new Howl({
-    src: ['sounds/flash-2.mp3']
+    src: ['sounds/CYCdh_ElecK03-Tom02.mp3']
   });
 
   var soundc1 = new Howl({
-    src: ['sounds/moon.mp3']
+    src: ['sounds/CYCdh_ElecK03-Tom03.mp3']
   });
 
   var soundc2 = new Howl({
-    src: ['sounds/flash-3.mp3']
+    src: ['sounds/CYCdh_ElecK03-PdHat.mp3']
   });
 
   var soundc3 = new Howl({
